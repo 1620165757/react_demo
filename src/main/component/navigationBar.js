@@ -5,7 +5,6 @@ import {withRouter} from "react-router-dom";
 const NavigationBarComponent = ({title = 'bar', showLeft = true, ...param}) => {
 
     const leftClick = () => {
-        // console.log(param)
         param.history.goBack();
     };
 
