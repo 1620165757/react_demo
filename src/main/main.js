@@ -10,7 +10,7 @@ class MainComponent extends Component {
 
     linkTo = (param) => {
         if (param === 'hooks') {
-            this.props.history.push('/hooks_')
+            this.props.history.push('/hooks')
         }
     };
 

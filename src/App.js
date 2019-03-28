@@ -8,7 +8,7 @@ export const App = () => (
     <main>
         <Switch>
             <Route exact path='/' component={Main}/>
-            <Route exact path='/hooks_' component={Hooks}/>
+            <Route exact path='/hooks' component={Hooks}/>
         </Switch>
     </main>
 );
