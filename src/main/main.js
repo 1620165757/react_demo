@@ -4,13 +4,15 @@ import './main.less'
 import {withRouter} from "react-router-dom";
 import {NavigationBar} from "./component/navigationBar";
 
-const data = ['hooks', 'redux.js', 'next.js', '浏览器缓存'];
+const data = ['hooks', 'redux.js', 'next.js', '浏览器缓存', 'react错误处理'];
 
 class MainComponent extends Component {
 
     linkTo = (param) => {
         if (param === 'hooks') {
             this.props.history.push('/hooks')
+        } else if (param === 'react错误处理') {
+            this.props.history.push('/reactCatch');
         } else {
             Toast.info('暂无内容');
         }
