@@ -13,6 +13,8 @@ class MainComponent extends Component {
             this.props.history.push('/hooks')
         } else if (param === 'react错误处理') {
             this.props.history.push('/reactCatch');
+        } else if (param === 'redux.js') {
+            this.props.history.push('/redux')
         } else {
             Toast.info('暂无内容');
         }
@@ -27,7 +29,7 @@ class MainComponent extends Component {
                         <div className='list-item' key={idx}>
                             <List.Item style={{fontSize: 20}} multipleLine onClick={() => this.linkTo(item)}
                                        platform="android">
-                                <span className='list-item-span' onClick={() => this.linkTo(item)}>{item}</span>
+                                <span className='list-item-span'>{item}</span>
                             </List.Item>
                         </div>
                     ))}

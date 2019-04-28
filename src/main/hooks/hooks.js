@@ -4,10 +4,11 @@ import {NavigationBar} from "../component/navigationBar";
 import {Stepper} from "antd-mobile";
 import './hooks.less'
 
-const HooksComponent = () => {
+const HooksComponent = ({props}) => {
     let [count, setCount] = useState(0);
     const [width, setWidth] = useState(window.innerWidth);
     const onChange = (val) => {
+        console.log(val);
         setCount(val)
     };
     useEffect(() => {
@@ -19,7 +20,7 @@ const HooksComponent = () => {
     let customWidth = useWindowWidth();
     return (
         <div>
-            <NavigationBar title='hooks'/>
+            <NavigationBar title='hooks' props={props}/>
             {/*计数器*/}
             <div className='hs-use-state-wrap'>
                 <span className='hs-use-state'>useState</span>
@@ -38,7 +39,6 @@ const HooksComponent = () => {
         </div>
     )
 };
-export const Hooks = withRouter(HooksComponent);
 
 function useWindowWidth() {
     const [width, setWidth] = useState(window.innerWidth);
@@ -50,3 +50,18 @@ function useWindowWidth() {
     }, [width]);
     return width;
 }
+
+class Hooks_ extends React.Component{
+    render(){
+        console.log('props11',this.props);
+        return(
+            <HooksComponent props={this.props}/>
+        )
+    }
+}
+
+export const Hooks = withRouter(Hooks_);
+
+
+
+

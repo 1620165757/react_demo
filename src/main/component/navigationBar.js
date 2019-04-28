@@ -2,7 +2,7 @@ import {Icon, NavBar} from "antd-mobile";
 import React from "react";
 import {withRouter} from "react-router-dom";
 
-const NavigationBarComponent = ({title = 'bar', showLeft = true, ...param}) => {
+const NavigationBarComponent = ({title = 'bar', showLeft = true,...param}) => {
 
     const leftClick = () => {
         param.history.goBack();
