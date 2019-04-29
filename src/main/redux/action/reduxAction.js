@@ -1,8 +1,13 @@
-import {CHANGE_BACKGROUND_COLOR} from "./actionTypes";
+import * as actionTypes from "./actionTypes";
 
 export function changeBackgroundColor(text) {
     return {
-        type: CHANGE_BACKGROUND_COLOR,
+        type: actionTypes.CHANGE_BACKGROUND_COLOR,
         backgroundColor: text,
+    }
+}
+export function getColorData() {
+    return{
+        type:actionTypes.GET_COLOR_DATA
     }
 }

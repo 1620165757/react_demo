@@ -1,0 +1,20 @@
+{
+  "colorData": [
+    {
+      "key": "白色",
+      "value": "#fff"
+    },
+    {
+      "key": "红色",
+      "value": "#ff4b48"
+    },
+    {
+      "key": "蓝色",
+      "value": "#7c90ee"
+    },
+    {
+      "key": "绿色",
+      "value": "#92dd8c"
+    }
+  ]
+}

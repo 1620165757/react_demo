@@ -4,6 +4,8 @@ import {NavigationBar} from "../component/navigationBar";
 import {Provider} from "react-redux";
 import ChildrenOne from "./components/childrenOne";
 import {reduxStore} from "./store/reduxStore";
+
+
 class ReduxComponent extends React.Component{
 
     render(){
