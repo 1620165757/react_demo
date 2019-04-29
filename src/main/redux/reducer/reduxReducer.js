@@ -2,7 +2,7 @@ import * as actionTypes from "../action/actionTypes";
 
 const initState = {
     backgroundColor: '#ffd09f',
-    colorData:[]
+    colorData: []
 };
 export const reduxReducer = (state = initState, action) => {
     switch (action.type) {
