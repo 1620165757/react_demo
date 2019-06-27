@@ -3,7 +3,7 @@ import {List, Toast} from "antd-mobile";
 import './main.less'
 import {withRouter} from "react-router-dom";
 import {NavigationBar} from "./component/navigationBar";
-
+import {connect} from 'react-redux'
 const data = ['hooks', 'redux.js', 'next.js', '浏览器缓存', 'react错误处理'];
 
 class MainComponent extends Component {
@@ -21,22 +21,28 @@ class MainComponent extends Component {
     };
 
     render() {
+        console.log(this.props,'1111');
         return (
             <div>
                 <NavigationBar title='主页' showLeft={false}/>
                 <div className='list-wrap'>
-                    {data.map((item, idx) => (
-                        <div className='list-item' key={idx}>
-                            <List.Item style={{fontSize: 20}} multipleLine onClick={() => this.linkTo(item)}
-                                       platform="android">
-                                <span className='list-item-span'>{item}</span>
-                            </List.Item>
-                        </div>
-                    ))}
+                    {/*{data.map((item, idx) => (*/}
+                        {/*<div className='list-item' key={idx}>*/}
+                            {/*<List.Item style={{fontSize: 20}} multipleLine onClick={() => this.linkTo(item)}*/}
+                                       {/*platform="android">*/}
+                                {/*<span className='list-item-span'>{item}</span>*/}
+                            {/*</List.Item>*/}
+                        {/*</div>*/}
+                    {/*))}*/}
+                    <div className='suspension'>点我1</div>
                 </div>
             </div>
         )
     }
 }
 
-export const Main = withRouter(MainComponent);
+const mapStateToProps = state => {
+    return state
+};
+
+export const Main = MainComponent;
