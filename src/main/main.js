@@ -4,7 +4,7 @@ import './main.less'
 import {withRouter} from "react-router-dom";
 import {NavigationBar} from "./component/navigationBar";
 import {connect} from 'react-redux'
-const data = ['hooks', 'redux.js', 'next.js', '浏览器缓存', 'react错误处理'];
+const data = ['hooks', 'react-redux.js','redux.js', 'next.js', '浏览器缓存', 'react错误处理'];
 
 class MainComponent extends Component {
 
@@ -13,9 +13,11 @@ class MainComponent extends Component {
             this.props.history.push('/hooks')
         } else if (param === 'react错误处理') {
             this.props.history.push('/reactCatch');
-        } else if (param === 'redux.js') {
+        } else if (param === 'react-redux.js') {
+            this.props.history.push('/react-redux')
+        }else if(param === 'redux.js'){
             this.props.history.push('/redux')
-        } else {
+        }else {
             Toast.info('暂无内容');
         }
     };
@@ -26,14 +28,14 @@ class MainComponent extends Component {
             <div>
                 <NavigationBar title='主页' showLeft={false}/>
                 <div className='list-wrap'>
-                    {/*{data.map((item, idx) => (*/}
-                        {/*<div className='list-item' key={idx}>*/}
-                            {/*<List.Item style={{fontSize: 20}} multipleLine onClick={() => this.linkTo(item)}*/}
-                                       {/*platform="android">*/}
-                                {/*<span className='list-item-span'>{item}</span>*/}
-                            {/*</List.Item>*/}
-                        {/*</div>*/}
-                    {/*))}*/}
+                    {data.map((item, idx) => (
+                        <div className='list-item' key={idx}>
+                            <List.Item style={{fontSize: 20}} multipleLine onClick={() => this.linkTo(item)}
+                                       platform="android">
+                                <span className='list-item-span'>{item}</span>
+                            </List.Item>
+                        </div>
+                    ))}
                     <div className='suspension'>点我1</div>
                 </div>
             </div>
