@@ -1,4 +1,4 @@
-import { connect } from 'react-redux'
+import { connect } from '../reactReduxCore'
 import { setVisibilityFilter } from '../actions'
 import Link from '../components/Link'
 

@@ -168,13 +168,14 @@ export default function combineReducers(reducers) {
             const key = finalReducerKeys[i];
             const reducer = finalReducers[key];
             const previousStateForKey = state[key];
-            console.log('previousStateForKey',reducer,previousStateForKey,action);
+            /*reducer：reducers.js 合并state*/
             const nextStateForKey = reducer(previousStateForKey, action);
             if (typeof nextStateForKey === 'undefined') {
                 const errorMessage = getUndefinedStateErrorMessage(key, action);
                 throw new Error(errorMessage)
             }
             nextState[key] = nextStateForKey;
+            console.log('previousStateForKey',nextStateForKey,nextState);
             hasChanged = hasChanged || nextStateForKey !== previousStateForKey
         }
         return hasChanged ? nextState : state
