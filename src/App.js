@@ -6,15 +6,16 @@ import {ReactCatch} from "./main/reactCatch/reactCatch";
 import {Hooks} from "./main/hooks/hooks";
 import ReactReduxMain from "./main/react-redux/react-redux";
 import ReduxMain from "./main/redux";
+import {UseStatePage} from "./main/hooks/childPage/useStatePage";
 
 const App = (data) => {
-    return(
+    return (
         <Switch>
             <Route exact path='/' component={Main}/>
-            <Route exact path='/hooks' component={Hooks}/>
-            <Route exact path='/reactCatch' component={ReactCatch}/>
-            <Route exact path='/react-redux' component={ReactReduxMain}/>
-            <Route exact path='/redux' component={ReduxMain}/>
+            <Route path='/hooks' component={Hooks}/>
+            <Route path='/reactCatch' component={ReactCatch}/>
+            <Route path='/react-redux' component={ReactReduxMain}/>
+            <Route path='/redux' component={ReduxMain}/>
         </Switch>
     )
 };

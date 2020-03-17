@@ -4,7 +4,8 @@ import './main.less'
 import {withRouter} from "react-router-dom";
 import {NavigationBar} from "./component/navigationBar";
 import {connect} from 'react-redux'
-const data = ['hooks', 'react-redux.js','redux.js', 'next.js', '浏览器缓存', 'react错误处理'];
+
+const data = ['hooks', 'react-redux.js', 'redux.js', 'next.js', '浏览器缓存', 'react错误处理', 'useState'];
 
 class MainComponent extends Component {
 
@@ -15,15 +16,17 @@ class MainComponent extends Component {
             this.props.history.push('/reactCatch');
         } else if (param === 'react-redux.js') {
             this.props.history.push('/react-redux')
-        }else if(param === 'redux.js'){
+        } else if (param === 'redux.js') {
             this.props.history.push('/redux')
-        }else {
+        } else if (param === 'useState') {
+            this.props.history.push('/hooks/useState')
+        } else {
             Toast.info('暂无内容');
         }
     };
 
     render() {
-        console.log(this.props,'1111');
+        console.log(this.props, '1111');
         return (
             <div>
                 <NavigationBar title='主页' showLeft={false}/>
