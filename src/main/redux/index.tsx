@@ -1,16 +1,21 @@
-import React from 'react'
+import * as React from 'react'
 import {NavigationBar} from "../component/navigationBar";
-import {createStore} from "./reduxCode/index";
+import {createStore,applyMiddleware} from "./reduxCode/index";
 import rootReducer from './reducers'
 import {addTodo} from "./actions";
 import {Button} from "antd-mobile";
+import createSagaMiddleware from 'redux-saga'
+import reduxSaga from "../saga/saga";
 
-const store = createStore(rootReducer);
+const sagaMiddleware = createSagaMiddleware();
 
-class ReduxMain extends React.Component {
+const store = createStore(rootReducer,applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(reduxSaga);
+
+class ReduxMain extends React.Component<any> {
 
     addTodo = ()=>{
-        store.dispatch(addTodo(111));
+        store.dispatch(addTodo(1));
     };
 
     render() {

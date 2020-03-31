@@ -20,12 +20,15 @@ function getUnexpectedStateShapeWarningMessage(
     action,
     unexpectedKeyCache
 ) {
-    const reducerKeys = Object.keys(reducers)
-    const argumentName =
-        action && action.type === ActionTypes.INIT
-            ? 'preloadedState argument passed to createStore'
-            : 'previous state received by the reducer'
+    const reducerKeys = Object.keys(reducers);
 
+    //获取当前是否为第一次初始化store的描述
+    const argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer'
+
+
+    /**
+     * 检测combineReducers时是否传入了reducer
+     */
     if (reducerKeys.length === 0) {
         return (
             'Store does not have a valid reducer. Make sure the argument passed ' +
@@ -42,13 +45,13 @@ function getUnexpectedStateShapeWarningMessage(
         )
     }
 
-    const unexpectedKeys = Object.keys(inputState).filter(
-        key => !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key]
-    )
+    const unexpectedKeys = Object.keys(inputState).filter(key => {
+        return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key]
+    });
 
     unexpectedKeys.forEach(key => {
         unexpectedKeyCache[key] = true
-    })
+    });
 
     if (action && action.type === ActionTypes.REPLACE) return
 
@@ -64,9 +67,12 @@ function getUnexpectedStateShapeWarningMessage(
 
 function assertReducerShape(reducers) {
     Object.keys(reducers).forEach(key => {
-        const reducer = reducers[key]
-        const initialState = reducer(undefined, {type: ActionTypes.INIT})
+        const reducer = reducers[key];
+        const initialState = reducer(undefined, {type: ActionTypes.INIT});
 
+        /**
+         * 检测redux的state是否初始化即，不能为undefined
+         */
         if (typeof initialState === 'undefined') {
             throw new Error(
                 `Reducer "${key}" returned undefined during initialization. ` +
@@ -118,10 +124,13 @@ function assertReducerShape(reducers) {
 export default function combineReducers(reducers) {
     const reducerKeys = Object.keys(reducers);
     const finalReducers = {};
-    for (let i = 0; i < reducerKeys.length; i++) {
+        for (let i = 0; i < reducerKeys.length; i++) {
         const key = reducerKeys[i];
 
         if (process.env.NODE_ENV !== 'production') {
+            /**
+             * 检测reducer是否为undefined
+             */
             if (typeof reducers[key] === 'undefined') {
                 warning(`No reducer provided for key "${key}"`)
             }
@@ -175,8 +184,7 @@ export default function combineReducers(reducers) {
                 throw new Error(errorMessage)
             }
             nextState[key] = nextStateForKey;
-            console.log('previousStateForKey',nextStateForKey,nextState);
-            hasChanged = hasChanged || nextStateForKey !== previousStateForKey
+            hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
         }
         return hasChanged ? nextState : state
     }

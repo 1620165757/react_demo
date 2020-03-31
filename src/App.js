@@ -6,7 +6,6 @@ import {ReactCatch} from "./main/reactCatch/reactCatch";
 import {Hooks} from "./main/hooks/hooks";
 import ReactReduxMain from "./main/react-redux/react-redux";
 import ReduxMain from "./main/redux";
-import {UseStatePage} from "./main/hooks/childPage/useStatePage";
 
 const App = (data) => {
     return (

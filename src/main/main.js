@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {List, Toast} from "antd-mobile";
 import './main.less'
-import {withRouter} from "react-router-dom";
 import {NavigationBar} from "./component/navigationBar";
-import {connect} from 'react-redux'
 
 const data = ['hooks', 'react-redux.js', 'redux.js', 'next.js', '浏览器缓存', 'react错误处理', 'useState'];
 

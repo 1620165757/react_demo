@@ -20,8 +20,8 @@ export const VisibilityFilters = {
  * action 创建函数
  */
 
-export function addTodo(text) {
-    return { type: ADD_TODO, text }
+export function addTodo(num) {
+    return { type: ADD_TODO, num }
 }
 
 export function toggleTodo(index) {

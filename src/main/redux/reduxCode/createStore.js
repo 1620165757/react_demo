@@ -176,10 +176,9 @@ export default function createStore(reducer, preloadedState, enhancer) {
         if (isDispatching) {
             throw new Error('Reducers may not dispatch actions.')
         }
-
+        // debugger
         try {
             isDispatching = true;
-            console.log('currentState',action,currentState);
             currentState = currentReducer(currentState, action)
         } finally {
             isDispatching = false
