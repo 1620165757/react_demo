@@ -1,6 +1,7 @@
 import {Icon, NavBar} from "antd-mobile";
 import React from "react";
 import {withRouter} from "react-router-dom";
+import {any} from "prop-types";
 
 const NavigationBarComponent = ({title = 'bar', showLeft = true,...param}) => {
 
@@ -20,4 +21,4 @@ const NavigationBarComponent = ({title = 'bar', showLeft = true,...param}) => {
         >{title}</NavBar>
     )
 };
-export const NavigationBar = withRouter(NavigationBarComponent);
+export const NavigationBar = withRouter(NavigationBarComponent)

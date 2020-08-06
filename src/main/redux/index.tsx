@@ -19,9 +19,9 @@ class ReduxMain extends React.Component<any> {
     };
 
     render() {
-        return (
+      return (
             <div>
-                <NavigationBar title='redux'/>
+                <NavigationBar/>
                 <Button onClick={this.addTodo}>
                     click me
                 </Button>
